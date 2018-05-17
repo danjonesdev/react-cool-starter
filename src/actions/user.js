@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import type { Dispatch, GetState, ThunkAction, ReduxState } from '../types';
 
-const API_URL = 'https://jsonplaceholder.typicode.com/users';
+const API_URL = 'http://localhost:3000/api/article';
 
 // Export this for unit testing more easily
 /* istanbul ignore next */
@@ -15,7 +15,7 @@ export const fetchUser = (
   dispatch({ type: 'USER_REQUESTING', userId });
 
   try {
-    const { data } = await axios.get(`${URL}/${userId}`);
+    const { data } = await axios.get(URL);
 
     /* istanbul ignore next */
     dispatch({ type: 'USER_SUCCESS', userId, data });

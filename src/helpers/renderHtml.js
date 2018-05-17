@@ -28,7 +28,6 @@ export default (
 
         ${head.title.toString()}
         ${head.base.toString()}
-        ${head.meta.toString()}
         ${head.link.toString()}
 
         <!-- Insert bundled styles into <link> tag -->
