@@ -37,21 +37,31 @@ export class UserInfo extends PureComponent<Props> {
     const userInfoById = userInfo[params.id];
 
     if (!userInfoById || userInfoById.readyStatus === 'USER_REQUESTING') {
-      return <p>Loading...</p>;
+      return (
+        <React.Fragment>
+          <Helmet title="Loading..." />
+          <p>Loading...</p>
+        </React.Fragment>
+      );
     } else if (userInfoById.readyStatus === 'USER_FAILURE') {
-      return <p>Oops, Failed to load info!</p>;
+      return (
+        <React.Fragment>
+          <Helmet title="Oops!" />
+          <p>Oops, Failed to load info!</p>
+        </React.Fragment>
+      );
     }
 
-    return <UserCard info={userInfoById.info} />;
+    return (
+      <React.Fragment>
+        <Helmet title={userInfoById.info.name} />
+        <UserCard info={userInfoById.info} />
+      </React.Fragment>
+    );
   };
 
   render() {
-    return (
-      <div className={styles.UserInfo}>
-        <Helmet title="User Info" />
-        {this.renderUserCard()}
-      </div>
-    );
+    return <div className={styles.UserInfo}>{this.renderUserCard()}</div>;
   }
 }
 
