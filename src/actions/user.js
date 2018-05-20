@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import type { Dispatch, GetState, ThunkAction, ReduxState } from '../types';
 
-const API_URL = '/api/article';
+const API_URL = 'https://danj-test.herokuapp.com/api/article';
 
 // Export this for unit testing more easily
 /* istanbul ignore next */
